@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flowers Project</title>
+</head>
+<body>
+    <header>
+        <h1>Flowers</h1>
+        <nav>
+            <a href="{% url 'all_flowers' %}">Xamma Flowers</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
+
+
+{% load custom_tags %}
+
+<ul>
+    {% for type in all_types %}
+        <li><a href="{% url 'flowers_by_type' type.id %}">{{ type.name }}</a></li>
+    {% endfor %}
+</ul>
